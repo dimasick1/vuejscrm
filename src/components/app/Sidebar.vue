@@ -1,5 +1,5 @@
 <template>
-  <ul class="sidenav app-sidenav open">
+  <ul class="sidenav app-sidenav" :class='{open: modelValue}'>
     <li>
       <router-link
         v-for="link in links"
@@ -16,10 +16,11 @@
 
 <script>
 export default {
+  props: ['modelValue'],
   data: () => ({
     links: [
       { title: "Balance", url: "/" },
-      { title: "Log", url: "/history" },
+      { title: "History", url: "/history" },
       { title: "Planning", url: "/planning" },
       { title: "New record", url: "/record" },
       { title: "Categories", url: "/categories" },
@@ -30,6 +31,6 @@ export default {
 
 <style lang="scss" scoped>
 .active {
-  background-color: rgba(0, 0, 0, 0.192);
+  background-color: rgba(0, 0, 0, 0.15);
 }
 </style>
